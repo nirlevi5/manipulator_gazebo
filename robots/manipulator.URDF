@@ -1,0 +1,679 @@
+<?xml version="1.0"?>
+<robot
+  name="manipulator">
+  <link
+    name="world">    
+  </link>
+  <joint
+    name="world_joint"
+    type="fixed">
+    <parent
+      link="world" />
+    <child
+      link="komodo_Arm_base_link" />
+  </joint> 
+
+  <link
+    name="komodo_Arm_base_link">
+    <inertial>
+      <origin
+        xyz="0.0787832367713514 1.63894955207658E-05 0.30372182598738"
+        rpy="0 0 0" />
+      <mass
+        value="5.82785061945851" />
+      <inertia
+        ixx="0.262040399352781"
+        ixy="-1.20613586206922E-05"
+        ixz="0.0219696026578"
+        iyy="0.271705564666912"
+        iyz="3.10612186063073E-05"
+        izz="0.0337682852586326" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_Arm_base_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_Arm_base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="komodo_elevator_link">
+    <inertial>
+      <origin
+        xyz="0.0954671716579415 1.91586249009607E-06 -0.0185743175743276"
+        rpy="0 0 0" />
+      <mass
+        value="1.09057945344451" />
+      <inertia
+        ixx="0.000835857275985966"
+        ixy="5.81870910353681E-08"
+        ixz="-3.13493979506258E-05"
+        iyy="0.00128840659932805"
+        iyz="1.45397132642805E-07"
+        izz="0.00136461371089342" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elevator_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.35 0.35 0.35 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elevator_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_elevator_joint"
+    type="prismatic">
+    <origin
+      xyz="0.101457996026178 0 0.0740000000000002"
+      rpy="0 0 0" />
+    <parent
+      link="komodo_Arm_base_link" />
+    <child
+      link="komodo_elevator_link" />
+    <axis
+      xyz="0 0 1" />
+   <limit
+	lower="0"
+	upper="0.45"
+	effort="500"
+	velocity="0" />
+  </joint>
+
+  <link
+    name="komodo_base_rotation_link">
+    <inertial>
+      <origin
+        xyz="-6.93889390390723E-17 1.46538271444029E-17 0.0623331826247039"
+        rpy="0 0 0" />
+      <mass
+        value="1.52333362223354" />
+      <inertia
+        ixx="0.00192061019876875"
+        ixy="-8.39923257698839E-08"
+        ixz="-6.07471919518397E-19"
+        iyy="0.000888601580387061"
+        iyz="-5.09938803674351E-19"
+        izz="0.001306201114282" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_base_rotation_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.3 0.3 0.3 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_base_rotation_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_base_rotation_joint"
+    type="revolute">
+    <origin
+      xyz="0.113 0 -0.00400000000000003"
+      rpy="0 0 0" />
+    <parent
+      link="komodo_elevator_link" />
+    <child
+      link="komodo_base_rotation_link" />
+    <axis
+      xyz="0 0 1" />
+	 <limit
+	lower="-1.57079"
+	upper="1.57079"
+	effort="50"
+	velocity="0" />
+  </joint>
+
+  <link
+    name="komodo_shoulder_link">
+    <inertial>
+      <origin
+        xyz="-4.66247777455853E-06 -9.82289263772941E-05 0.0772888499398813"
+        rpy="0 0 0" />
+      <mass
+        value="0.191480824435982" />
+      <inertia
+        ixx="0.00107301595767426"
+        ixy="-2.97890564117552E-07"
+        ixz="-2.01214952294279E-08"
+        iyy="0.000975953126734079"
+        iyz="-1.1960192138697E-06"
+        izz="0.000217659790404293" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_shoulder_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_shoulder_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0835"
+      rpy="0 0 0" />
+    <parent
+      link="komodo_base_rotation_link" />
+    <child
+      link="komodo_shoulder_link" />
+    <axis
+      xyz="0 1 0" />
+   <limit
+	lower="0"
+	upper="1.692969"
+	effort="50"
+	velocity="0" />
+  </joint>
+
+  <link
+    name="komodo_elbow1_link">
+    <inertial>
+      <origin
+        xyz="3.38829306132937E-05 2.66620552362602E-06 0.0239321015118659"
+        rpy="0 0 0" />
+      <mass
+        value="0.759959108482768" />
+      <inertia
+        ixx="0.00111562545185235"
+        ixy="3.16190978299692E-07"
+        ixz="2.8926774836368E-06"
+        iyy="0.00114606033599678"
+        iyz="-8.11916889616619E-08"
+        izz="0.000237163436712144" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow1_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.3 0.3 0.3 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow1_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_elbow1_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.000251155668931501 0.266305434894181"
+      rpy="0 0 0" />
+    <parent
+      link="komodo_shoulder_link" />
+    <child
+      link="komodo_elbow1_link" />
+    <axis
+      xyz="-1 0 0" />
+   <limit
+	lower="-2.4434"
+	upper="2.4434"
+	effort="50"
+	velocity="0" />
+  </joint>
+
+  <link
+    name="komodo_elbow2_link">
+    <inertial>
+      <origin
+        xyz="0.000512284668490459 -2.29084833272284E-05 0.0885118785637893"
+        rpy="0 0 0" />
+      <mass
+        value="1.12138856829227" />
+      <inertia
+        ixx="0.0110437300677022"
+        ixy="-3.04258914498172E-07"
+        ixz="7.91667404759185E-05"
+        iyy="0.0110599202123036"
+        iyz="-1.2246825546657E-06"
+        izz="0.000331598440084596" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow2_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow2_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_elbow2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.22399999999847"
+      rpy="0 0 0" />
+    <parent
+      link="komodo_elbow1_link" />
+    <child
+      link="komodo_elbow2_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+	lower="-2.4434"
+	upper="2.4434"
+	effort="50"
+	velocity="0" />
+  </joint>
+
+  <link
+    name="komodo_wrist_link">
+    <inertial>
+      <origin
+        xyz="0.0303673809619356 4.00707611352118E-10 0.000140374211043737"
+        rpy="0 0 0" />
+      <mass
+        value="0.717337417215465" />
+      <inertia
+        ixx="0.000437528795624211"
+        ixy="2.79334685089828E-12"
+        ixz="3.9184388902034E-06"
+        iyy="0.000211170064630335"
+        iyz="-4.20757370549832E-12"
+        izz="0.000486392340366095" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.57079632679 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_wrist_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.3 0.3 0.3 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_wrist_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_wrist_joint"
+    type="revolute">
+    <origin
+      xyz="0.0131002732116043 0 0.244749985376465"
+      rpy="-7.54547010806299E-10 -1.57079521049999 7.54547010806769E-10" />
+    <parent
+      link="komodo_elbow2_link" />
+    <child
+      link="komodo_wrist_link" />
+    <axis
+      xyz="1 0 0" />
+   <limit
+	lower="-1.91986"
+	upper="1.91986"
+	effort="50"
+	velocity="0" />
+  </joint>
+
+  <link
+    name="komodo_left_finger_link">
+    <inertial>
+      <origin
+        xyz="3.72403910764429E-08 0.0148725895621533 0.0333609018907974"
+        rpy="0 0 0" />
+      <mass
+        value="0.111981711598486" />
+      <inertia
+        ixx="0.00486392340366094"
+        ixy="4.20757000035677E-12"
+        ixz="-3.91843889020299E-06"
+        iyy="0.00211170064630335"
+        iyz="2.79335159568522E-12"
+        izz="0.00437528795624211" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_left_finger_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_left_finger_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_left_finger_joint"
+    type="revolute">
+    <origin
+      xyz="0.0422500000000001 0.0209999999999993 0"
+      rpy="-1.68486099328966E-31 1.57079521049999 -8.42292155533488E-16" />
+    <parent
+      link="komodo_wrist_link" />
+    <child
+      link="komodo_left_finger_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-0.1"
+      upper="1.57"
+      effort="10"
+      velocity="1" />
+  </joint>
+
+  <link
+    name="komodo_right_finger_link">
+    <inertial>
+      <origin
+        xyz="3.72403914095099E-08 -0.0148725895621533 0.0333609018907972"
+        rpy="0 0 0" />
+      <mass
+        value="0.111981711598486" />
+      <inertia
+        ixx="0.00486392340366094"
+        ixy="4.20757000035677E-12"
+        ixz="-3.91843889020299E-06"
+        iyy="0.00211170064630335"
+        iyz="2.79335159568522E-12"
+        izz="0.00437528795624211" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_right_finger_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_right_finger_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="komodo_right_finger_joint"
+    type="revolute">
+    <origin
+      xyz="0.0422499999999997 -0.0210000000000011 0"
+      rpy="-1.68486099328966E-31 1.57079521049999 -8.42292155533488E-16" />
+    <parent
+      link="komodo_wrist_link" />
+    <child
+      link="komodo_right_finger_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="0.1"
+      effort="10"
+      velocity="0" />
+  </joint>
+
+  <!-- ros_control plugin -->
+  <gazebo> 
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/manipulator</robotNamespace> 
+    </plugin> 
+  </gazebo>
+
+ <!-- Transmissions for ROS Control -->
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_elevator_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_base_rotation_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_shoulder_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_elbow1_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_elbow2_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_wrist_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_left_finger_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="komodo_right_finger_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor8">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<gazebo reference="komodo_base_rotation_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+   <material>Gazebo/Grey</material>
+</gazebo>
+
+<gazebo reference="komodo_shoulder_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+   <material>Gazebo/Grey</material>
+</gazebo>
+
+<gazebo reference="komodo_elbow1_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+   <material>Gazebo/Grey</material>
+</gazebo>
+
+<gazebo reference="komodo_elbow2_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+   <material>Gazebo/Grey</material>
+</gazebo>
+
+<gazebo reference="komodo_wrist_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="komodo_left_finger_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="komodo_right_finger_link">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <selfCollide>true</selfCollide>
+</gazebo>
+
+</robot>
