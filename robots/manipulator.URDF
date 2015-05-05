@@ -35,7 +35,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_Arm_base_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_Arm_base_link.stl" />
       </geometry>
       <material
         name="">
@@ -49,7 +49,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_Arm_base_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_Arm_base_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -76,7 +76,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elevator_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_elevator_link.stl" />
       </geometry>
       <material
         name="">
@@ -90,7 +90,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elevator_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_elevator_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -136,7 +136,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_base_rotation_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_base_rotation_link.stl" />
       </geometry>
       <material
         name="">
@@ -150,7 +150,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_base_rotation_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_base_rotation_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -196,7 +196,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_shoulder_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_shoulder_link.stl" />
       </geometry>
       <material
         name="">
@@ -210,7 +210,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_shoulder_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_shoulder_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -256,7 +256,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow1_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_elbow1_link.stl" />
       </geometry>
       <material
         name="">
@@ -270,7 +270,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow1_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_elbow1_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -316,7 +316,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow2_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_elbow2_link.stl" />
       </geometry>
       <material
         name="">
@@ -330,7 +330,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_elbow2_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_elbow2_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -376,7 +376,7 @@
         rpy="0 1.57079632679 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_wrist_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_wrist_link.stl" />
       </geometry>
       <material
         name="">
@@ -390,7 +390,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_wrist_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_wrist_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -436,7 +436,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_left_finger_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_left_finger_link.stl" />
       </geometry>
       <material
         name="">
@@ -450,7 +450,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_left_finger_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_left_finger_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -496,7 +496,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_right_finger_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_right_finger_link.stl" />
       </geometry>
       <material
         name="">
@@ -510,7 +510,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://komodo_gazebo/robots/meshes_elevator/komodo_right_finger_link.stl" />
+          filename="package://manipulator_gazebo/robots/meshes_manipulator/komodo_right_finger_link.stl" />
       </geometry>
     </collision>
   </link>
