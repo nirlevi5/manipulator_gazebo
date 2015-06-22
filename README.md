@@ -53,5 +53,20 @@ Launching The Manipulator In GAZEBO Simulator:
 --> plugins --> topics --> Topic Monitor
 
 
+Running The Homework Template:
+===========================================
+"roslaunch manipulator_gazebo manipulator_empty_world.launch"
 
+(in a new terminal window)  
+"rosrun manipulator_gazebo move_arm_server"
+
+To send a command:
+--------------------
+(in a new terminal window)
+"rosservice call /move_arm"
+now press "TAB" for auto complete and refill the desired values.
+
+Good Luck
+Nir
+ 
 
