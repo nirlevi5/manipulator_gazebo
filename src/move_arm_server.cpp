@@ -69,6 +69,7 @@ bool move_arm(manipulator_gazebo::MoveArm::Request  &req,
 	ROS_INFO("Sending joint trajectory and controlling");
     control_joint_trajectory(joint_trajectory);
 
+
 	res.success.data = "True";
 
 	return true;
@@ -76,12 +77,12 @@ bool move_arm(manipulator_gazebo::MoveArm::Request  &req,
 
 void jointCallback(const sensor_msgs::JointState &msg)
 {
-	current_joint_states[0] = msg.position[0];
-	current_joint_states[1] = msg.position[1];
-	current_joint_states[2] = msg.position[2];
-	current_joint_states[3] = msg.position[3];
-	current_joint_states[4] = msg.position[4];
-	current_joint_states[5] = msg.position[5];
+	current_joint_states[0] = msg.position[3];
+	current_joint_states[1] = msg.position[0];
+	current_joint_states[2] = msg.position[6];
+	current_joint_states[3] = msg.position[1];
+	current_joint_states[4] = msg.position[2];
+	current_joint_states[5] = msg.position[7];
 }
 
 int main(int argc, char **argv)
