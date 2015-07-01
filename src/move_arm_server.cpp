@@ -12,7 +12,7 @@ double		dt;
 double		current_joint_states[6];
 
 
-void calc_cartezian_trajectory(double CT[6][N] , Float64 desX , Float64 desY , Float64 desZ ,Float64 desROLL , Float64 desPITCH , Float64 desYAW)
+void calc_cartezian_trajectory(double CT[6][N] , double desX , double desY , double desZ ,double desROLL , double desPITCH , double desYAW)
 {
 	// YOUR CODE HERE
 }
@@ -40,12 +40,12 @@ bool move_arm(manipulator_gazebo::MoveArm::Request  &req,
 	double joint_trajectory[6][N];
 	double initial_joint_states[6];
 
-	Float64 desX		= req.desired_xyz[0];
-	Float64 desY		= req.desired_xyz[1];
-	Float64 desZ		= req.desired_xyz[2];
-	Float64 desROLL		= req.desired_rpy[0];
-	Float64 desPITCH	= req.desired_rpy[1];
-	Float64 desYAW		= req.desired_rpy[2];
+	double desX		= req.desired_xyz[0].data;
+	double desY		= req.desired_xyz[1].data;
+	double desZ		= req.desired_xyz[2].data;
+	double desROLL	= req.desired_rpy[0].data;
+	double desPITCH	= req.desired_rpy[1].data;
+	double desYAW	= req.desired_rpy[2].data;
 
 	dt					= req.duration.data/N;
 
@@ -56,8 +56,8 @@ bool move_arm(manipulator_gazebo::MoveArm::Request  &req,
 																		  current_joint_states[4],
 																		  current_joint_states[5]);
 	ROS_INFO("I got:");
-	ROS_INFO("desired [ x y z ]          = [ %.3f %.3f %.3f ]",desX.data,desY.data,desZ.data);
-	ROS_INFO("desired [ roll pitch yaw ] = [ %.3f %.3f %.3f ]",desROLL.data,desPITCH.data,desYAW.data);
+	ROS_INFO("desired [ x y z ]          = [ %.3f %.3f %.3f ]",desX,desY,desZ);
+	ROS_INFO("desired [ roll pitch yaw ] = [ %.3f %.3f %.3f ]",desROLL,desPITCH,desYAW);
 	ROS_INFO("desired iteration time     = %f",dt);
 
 	ROS_INFO("Calculating cartezian trajectory");
@@ -68,7 +68,6 @@ bool move_arm(manipulator_gazebo::MoveArm::Request  &req,
 
 	ROS_INFO("Sending joint trajectory and controlling");
     control_joint_trajectory(joint_trajectory);
-
 
 	res.success.data = "True";
 
@@ -90,8 +89,8 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "move_arm_server");
   ros::NodeHandle n;
 
-  ros::ServiceServer service = n.advertiseService("move_arm", move_arm);
-  ros::Subscriber joints_sub_ = n.subscribe("/manipulator/joint_states", 1000, jointCallback );
+  ros::ServiceServer 	service = n.advertiseService("move_arm", move_arm);
+  ros::Subscriber 		joints_sub_ = n.subscribe("/manipulator/joint_states", 1000, jointCallback );
 
 
   ROS_INFO("Ready for commands:");
