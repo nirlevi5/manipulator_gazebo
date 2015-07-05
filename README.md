@@ -30,6 +30,7 @@ sudo apt-get install ros-indigo-gazebo-ros-control
 Install this package in your catkin_ws
 ------------
 (in a new terminal window)
+"source ~/catkin_ws/devel/setup.bash"
 
 "cd ~/catkin_ws/src"
 
@@ -43,9 +44,15 @@ Install this package in your catkin_ws
 Launching The Manipulator In GAZEBO Simulator:
 ===========================================
 (in a new terminal window)
+
+"source ~/catkin_ws/devel/setup.bash"
+
 "roslaunch manipulator_gazebo manipulator_empty_world.launch"
 
 (in a new terminal window)
+
+"source ~/catkin_ws/devel/setup.bash"
+
 "rqt"
 
 --> plugins --> topics --> Message Publisher
@@ -55,16 +62,28 @@ Launching The Manipulator In GAZEBO Simulator:
 
 Running The Homework Template:
 ===========================================
+(in a new terminal window)
+
+"source ~/catkin_ws/devel/setup.bash"
+
 "roslaunch manipulator_gazebo manipulator_empty_world.launch"
 
-(in a new terminal window)  
+(in a new terminal window)
+
+"source ~/catkin_ws/devel/setup.bash"
+
 "rosrun manipulator_gazebo move_arm_server"
 
 To send a command:
 --------------------
 (in a new terminal window)
+
+"source ~/catkin_ws/devel/setup.bash"
+
 "rosservice call /move_arm"
+
 now press "TAB" for auto complete and refill the desired values.
+
 
 Good Luck
 Nir
